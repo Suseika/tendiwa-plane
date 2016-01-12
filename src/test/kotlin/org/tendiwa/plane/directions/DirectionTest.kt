@@ -29,4 +29,20 @@ class DirectionTest {
         )
     }
 
+    @Test
+    fun `counter clockwise angle`() {
+        assertEquals(
+            Angle(1.0),
+            RadianDirection(0.0) counterClockwiseAngle RadianDirection(1.0)
+        )
+    }
+
+    @Test
+    fun `counter clockwise angle can span over 0 direction`() {
+        assertEquals(
+            Angle(Math.PI / 2),
+            RadianDirection(Math.PI / 4 * 7)
+                .counterClockwiseAngle(RadianDirection(Math.PI / 4))
+        )
+    }
 }
