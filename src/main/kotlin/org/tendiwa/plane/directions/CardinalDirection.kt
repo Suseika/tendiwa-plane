@@ -1,6 +1,9 @@
 package org.tendiwa.plane.directions
 
+import org.tendiwa.plane.directions.OrdinalDirection.*
 import org.tendiwa.plane.orientations.Orientation
+import org.tendiwa.plane.orientations.Orientation.HORIZONTAL
+import org.tendiwa.plane.orientations.Orientation.VERTICAL
 
 enum class CardinalDirection(
     override val dx: Int,
@@ -15,24 +18,24 @@ enum class CardinalDirection(
 
     val orientation: Orientation
         get() = when (this) {
-            N, S -> Orientation.VERTICAL
-            W, E -> Orientation.HORIZONTAL
+            N, S -> VERTICAL
+            W, E -> HORIZONTAL
         }
 
     override val cw8: OrdinalDirection
         get() = when (this) {
-            N -> OrdinalDirection.NE
-            E -> OrdinalDirection.SE
-            S -> OrdinalDirection.SW
-            W -> OrdinalDirection.NW
+            N -> NE
+            E -> SE
+            S -> SW
+            W -> NW
         }
 
     override val ccw8: OrdinalDirection
         get() = when (this) {
-            N -> OrdinalDirection.NW
-            E -> OrdinalDirection.NE
-            S -> OrdinalDirection.SE
-            W -> OrdinalDirection.SW
+            N -> NW
+            E -> NE
+            S -> SE
+            W -> SW
         }
 
     override val cw4: CardinalDirection
