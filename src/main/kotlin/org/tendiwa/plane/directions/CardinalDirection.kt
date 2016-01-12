@@ -5,7 +5,7 @@ import org.tendiwa.plane.orientations.Orientation
 enum class CardinalDirection(
     override val dx: Int,
     override val dy: Int
-) : Direction {
+) : KingDirection {
 
     N(0, -1),
     E(1, 0),
@@ -50,7 +50,7 @@ enum class CardinalDirection(
             W -> S
         }
 
-    override val opposite: Direction
+    override val opposite: KingDirection
         get() = when (this) {
             N -> S
             E -> W

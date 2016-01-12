@@ -3,7 +3,7 @@ package org.tendiwa.plane.directions
 enum class OrdinalDirection(
     override val dx: Int,
     override val dy: Int
-) : Direction {
+) : KingDirection {
     NE(1, -1),
     SE(1, 1),
     SW(-1, 1),
@@ -32,7 +32,7 @@ enum class OrdinalDirection(
             NW -> NE
         }
 
-    override val ccw4: Direction
+    override val ccw4: KingDirection
         get() = when (this) {
             NE -> NW
             SE -> NE
