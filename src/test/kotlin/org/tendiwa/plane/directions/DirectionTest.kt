@@ -40,7 +40,7 @@ class DirectionTest {
     @Test
     fun `counter clockwise angle can span over 0 direction`() {
         assertEquals(
-            Angle(Math.PI / 2),
+            Angle.RIGHT,
             RadianDirection(Math.PI / 4 * 7)
                 .counterClockwiseAngle(RadianDirection(Math.PI / 4))
         )
