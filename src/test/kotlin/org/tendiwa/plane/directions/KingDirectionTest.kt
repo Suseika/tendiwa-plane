@@ -3,7 +3,7 @@ package org.tendiwa.plane.directions
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class DirectionTest {
+class KingDirectionTest {
     @Test fun cw4() {
         assertEquals(
             CardinalDirection.N,
