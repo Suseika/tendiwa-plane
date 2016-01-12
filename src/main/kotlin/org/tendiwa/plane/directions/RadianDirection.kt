@@ -1,6 +1,6 @@
 package org.tendiwa.plane.directions
 
-import java.lang.Math.PI
+import org.tendiwa.math.angles.Angle
 
 /**
  * Direction defined as a counter-clockwise angle from the direction of
@@ -13,7 +13,7 @@ class RadianDirection
  */
 (radians: Double) : Direction {
 
-    override val radians: Double = radians - PI * 2 * Math.floor(radians / PI / 2)
+    override val radians: Double = Angle.normalize(radians)
 
     init {
         org.tendiwa.tools.argumentConstraint(
