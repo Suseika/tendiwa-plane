@@ -11,9 +11,9 @@ enum class CardinalDirection(
     override val radians: Double
 ) : KingDirection {
 
-    N(0, -1, Math.PI / 2),
+    N(0, -1, Math.PI / 2 * 3),
     E(1, 0, 0.0),
-    S(0, 1, Math.PI / 2 * 3),
+    S(0, 1, Math.PI / 2),
     W(-1, 0, Math.PI);
 
     val orientation: Orientation

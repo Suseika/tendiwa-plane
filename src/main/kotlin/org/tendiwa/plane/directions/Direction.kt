@@ -1,7 +1,6 @@
 package org.tendiwa.plane.directions
 
 import org.tendiwa.math.angles.Angle
-import org.tendiwa.math.doubles.distance
 
 /**
  * A direction in two-dimensional space.
@@ -25,7 +24,7 @@ interface Direction {
             val denormalizedRadians = ccw.radians + Math.PI * 2
             Angle(denormalizedRadians - this.radians)
         } else {
-            Angle(this.radians distance ccw.radians)
+            Angle(ccw.radians - this.radians)
         }
 }
 
