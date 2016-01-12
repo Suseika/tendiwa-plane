@@ -14,5 +14,10 @@
     <description>Common dependencies of tendiwa-geometry and tendiwa-grid</description>
 
     <dependencies>
+        <dependency>
+            <groupId>org.tendiwa</groupId>
+            <artifactId>math</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
