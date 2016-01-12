@@ -3,7 +3,7 @@ package org.tendiwa.plane.directions
 /**
  * Direction in which a chess king can move.
  */
-interface KingDirection {
+interface KingDirection : Direction {
     val dx: Int
     val dy: Int
     val cw8: KingDirection
