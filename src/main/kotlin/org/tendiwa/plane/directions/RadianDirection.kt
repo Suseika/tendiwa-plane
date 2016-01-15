@@ -1,6 +1,6 @@
 package org.tendiwa.plane.directions
 
-import org.tendiwa.math.angles.Angle
+import org.tendiwa.math.angles.AngularMeasure
 
 /**
  * Direction defined as a counter-clockwise angle from the direction of
@@ -13,7 +13,7 @@ class RadianDirection
  */
 (radians: Double) : Direction {
 
-    override val radians: Double = Angle.normalize(radians)
+    override val radians: Double = AngularMeasure.normalize(radians)
 
     init {
         org.tendiwa.tools.argumentConstraint(

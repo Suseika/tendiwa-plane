@@ -1,6 +1,6 @@
 package org.tendiwa.plane.directions
 
-import org.tendiwa.math.angles.Angle
+import org.tendiwa.math.angles.AngularMeasure
 
 /**
  * A direction in two-dimensional space.
@@ -10,21 +10,21 @@ import org.tendiwa.math.angles.Angle
 interface Direction {
     val radians: Double
 
-    infix operator fun plus(angle: Angle): Direction =
-        RadianDirection(radians + angle.radians)
+    infix operator fun plus(angularMeasure: AngularMeasure): Direction =
+        RadianDirection(radians + angularMeasure.radians)
 
-    infix operator fun minus(angle: Angle): Direction =
-        RadianDirection(radians - angle.radians)
+    infix operator fun minus(angularMeasure: AngularMeasure): Direction =
+        RadianDirection(radians - angularMeasure.radians)
 
     /**
      * Returns a positive counter-clockwise angle between two vectors
      */
-    infix fun counterClockwiseAngle(ccw: Direction): Angle =
+    infix fun counterClockwiseAngle(ccw: Direction): AngularMeasure =
         if (ccw.radians < this.radians) {
             val denormalizedRadians = ccw.radians + Math.PI * 2
-            Angle(denormalizedRadians - this.radians)
+            AngularMeasure(denormalizedRadians - this.radians)
         } else {
-            Angle(ccw.radians - this.radians)
+            AngularMeasure(ccw.radians - this.radians)
         }
 }
 
