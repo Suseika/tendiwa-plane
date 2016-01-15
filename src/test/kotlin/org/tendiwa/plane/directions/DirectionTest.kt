@@ -1,8 +1,10 @@
 package org.tendiwa.plane.directions
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.tendiwa.math.angles.AngularMeasure
-import kotlin.test.assertEquals
+import org.tendiwa.math.constants.EPSILON
+import org.tendiwa.plane.directions.CardinalDirection.E
 
 class DirectionTest {
     @Test
@@ -44,5 +46,23 @@ class DirectionTest {
             RadianDirection(Math.PI / 4 * 7)
                 .counterClockwiseAngle(RadianDirection(Math.PI / 4))
         )
+    }
+
+    @Test
+    fun `sun returns specified number of rays`() {
+        E
+            .sun(9)
+            .apply { assertEquals(9, size) }
+    }
+
+    @Test
+    fun `rays of sun are regular`() {
+        E
+            .sun(9)
+            .map { it.radians }
+            .sum()
+            .apply { assert(this > 0.0) }
+            .let { it % Math.PI * 2 }
+            .apply { assertEquals(0.0, this, EPSILON) }
     }
 }

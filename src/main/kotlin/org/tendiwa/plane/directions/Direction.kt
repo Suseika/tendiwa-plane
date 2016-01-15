@@ -1,6 +1,7 @@
 package org.tendiwa.plane.directions
 
 import org.tendiwa.math.angles.AngularMeasure
+import org.tendiwa.math.angles.times
 import org.tendiwa.plane.directions.OrdinalDirection.*
 import org.tendiwa.tools.butIf
 import java.lang.Math.PI
@@ -50,3 +51,12 @@ val Direction.quarter: OrdinalDirection?
     }
 
 fun Direction.reverse(): Direction = RadianDirection(radians + PI)
+
+/**
+ * Returns rays at regular intervals starting from this ray, clockwise.
+ */
+fun Direction.sun(raysNum: Int): List<Direction> {
+    val rayAngle = AngularMeasure(Math.PI * 2 / raysNum)
+    return (0 until raysNum)
+        .map { i -> this + (rayAngle * i) }
+}
