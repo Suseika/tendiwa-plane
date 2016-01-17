@@ -5,10 +5,10 @@ enum class OrdinalDirection(
     override val dy: Int,
     override val radians: Double
 ) : KingDirection {
-    NE(1, -1, Math.PI / 4),
-    SE(1, 1, Math.PI / 4 * 7),
-    SW(-1, 1, Math.PI / 4 * 5),
-    NW(-1, -1, Math.PI / 4 * 3);
+    NE(1, 1, Math.PI / 4),
+    SE(1, -1, Math.PI / 4 * 7),
+    SW(-1, -1, Math.PI / 4 * 5),
+    NW(-1, 1, Math.PI / 4 * 3);
 
     override val cw8: CardinalDirection
         get() = when (this) {
