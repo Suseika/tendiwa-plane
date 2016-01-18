@@ -5,6 +5,7 @@ import org.junit.Test
 import org.tendiwa.math.angles.AngularMeasure
 import org.tendiwa.math.constants.EPSILON
 import org.tendiwa.plane.directions.CardinalDirection.E
+import org.tendiwa.plane.directions.OrdinalDirection.*
 
 class DirectionTest {
     @Test
@@ -64,5 +65,13 @@ class DirectionTest {
             .apply { assert(this > 0.0) }
             .let { it % Math.PI * 2 }
             .apply { assertEquals(0.0, this, EPSILON) }
+    }
+
+    @Test
+    fun `ordinal directions are in corresponding quarters`() {
+        assertEquals(NE, NE.quarter)
+        assertEquals(SE, SE.quarter)
+        assertEquals(SW, SW.quarter)
+        assertEquals(NW, NW.quarter)
     }
 }
