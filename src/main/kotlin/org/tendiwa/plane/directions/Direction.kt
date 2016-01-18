@@ -37,14 +37,13 @@ fun Direction.greaterAlternativeRadians(cw: Direction): Double =
         )
 
 val Direction.quarter: OrdinalDirection?
-    // TODO: Can be optimized
-    get() = if (radians > 0 && radians < Math.PI / 2) {
+    get() = if (radians > 0 && radians < PI / 2) {
         NE
-    } else if (radians > Math.PI / 2 && radians < Math.PI) {
+    } else if (radians > PI / 2 && radians < PI) {
         NW
-    } else if (radians > Math.PI && radians < Math.PI / 2 * 3) {
+    } else if (radians > PI && radians < PI / 2 * 3) {
         SW
-    } else if (radians > Math.PI / 2 * 3 && radians < Math.PI * 2) {
+    } else if (radians > PI / 2 * 3 && radians < PI * 2) {
         SE
     } else {
         null
@@ -56,7 +55,7 @@ fun Direction.reverse(): Direction = RadianDirection(radians + PI)
  * Returns rays at regular intervals starting from this ray, clockwise.
  */
 fun Direction.sun(raysNum: Int): List<Direction> {
-    val rayAngle = AngularMeasure(Math.PI * 2 / raysNum)
+    val rayAngle = AngularMeasure(PI * 2 / raysNum)
     return (0 until raysNum)
         .map { i -> this + (rayAngle * i) }
 }
