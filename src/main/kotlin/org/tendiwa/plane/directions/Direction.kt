@@ -59,3 +59,10 @@ fun Direction.sun(raysNum: Int): List<Direction> {
     return (0 until raysNum)
         .map { i -> this + (rayAngle * i) }
 }
+
+fun Direction.pizza(sliceAngle: AngularMeasure): DirectionFan =
+    DirectionFan(
+        cw = this + sliceAngle,
+        ccw = this - sliceAngle
+    )
+
